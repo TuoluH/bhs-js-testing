@@ -3,6 +3,7 @@
  * Run after you make changes to re-run the tests with your new code.
  */
 
+// 11~20
 function firstLast6(arr) {
     if (arr.indexOf(6) == 0 || arr.lastIndexOf(6) == arr.length - 1) {
         return true;
@@ -85,7 +86,7 @@ function canBalance(arr) {
         } else if (right > left) {
             return false
         }
-        
+
     }
 }
 
@@ -108,10 +109,68 @@ function sameEnds(str) {
         str = str.substring(0, str.length / 2) + str.substring((str.length / 2) + 1)
     }
     for (let i = str.length / 2; i > 0; i--) {
-        if (str.substring(0, i) == str.substring(str.length - i)) {  
+        if (str.substring(0, i) == str.substring(str.length - i)) {
             ends = str.substring(0, i);
             break;
         }
     }
     return ends;
+}
+
+// F/M/R
+function all_even(arr) {
+    return arr.filter(num => num % 2 == 0);
+}
+
+function no_space(arr) {
+    return arr.filter(word => !word.includes(" "));
+}
+
+function all_positive(arr) {
+    return arr.filter(arr2 => arr2.every(num => num % 2 == 0));
+}
+
+function same_vowels(arr) {
+    return arr.filter(str => {
+        let vowels = str.match(/[aeiou]/g);
+        return vowels.every(vowel => vowel == vowels[0]);
+    })
+}
+
+function times_ten(arr) {
+    return arr.map(num => num * 10);
+}
+
+function shift_right(arr) {
+    arr.unshift(arr[arr.length - 1]);
+    arr.pop();
+    return arr
+}
+
+function no_vowels(arr) {
+    return arr.map(str => str.replaceAll(/[bcdfghjklmnpqrstvwxyz]/gi, ""));
+}
+
+function double_matrix(arr) {
+    return arr.map(arr => arr.map(num => num * 2));
+}
+
+function sum_nums(arr) {
+    return arr.reduce((sum, num) => sum + num);
+}
+
+function product_matrix(arr) {
+    return arr.reduce((product, arr) => product * arr.reduce((product, num) => product * num, 1), 1);
+}
+
+function average(arr) {
+    return arr.reduce((sum, num) => sum + num) / arr.length;
+}
+
+function lucky_numbers(arr) {
+    let lastNum = arr.pop();
+    let message = arr.reduce((str, num) => str + num + ", ", "Your lucky numbers are: ");
+    message +=  "and " + lastNum;
+
+    return message;
 }
